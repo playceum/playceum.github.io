@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Playceum マインクラフト部門</title>
-<meta name="description" content="最新鋭のマインクラフトをプレイしませんか？ 整った環境、遊びながら学べるゲームモード、13 の分野。Playceum のマインクラフト部門のご紹介です。">
+<title>Playceum Minecraft Division</title>
+<meta name="description" content="Want to play Minecraft at its cutting edge? A ready-made setup, game modes for learning as you play, and 13 fields to explore. Meet Playceum's Minecraft division.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg stroke='%2315152e' stroke-width='4' stroke-linejoin='round'%3E%3Cpath fill='%23ffd23f' d='M32 6 56 19 32 32 8 19z'/%3E%3Cpath fill='%2335d07f' d='M8 19 32 32V58L8 45z'/%3E%3Cpath fill='%234cb8ff' d='M32 32 56 19V45L32 58z'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="alternate" hreflang="ja" href="https://playceum.github.io/">
 <link rel="alternate" hreflang="en" href="https://playceum.github.io/en/">
@@ -12,8 +12,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=DotGothic16&family=Zen+Maru+Gothic:wght@500;700;900&display=swap">
 <style>
-/* 骨組み: 黄色の表紙 → 流れる帯 → 白い本文（色つきのブロックの札）→ 紺の申し込み。
-   ブロックのように、太い線と、ずらした影で組む。1 つの見た目に決めている（明暗の切り替えは無い）。 */
+/* English copy of ../index.html. Keep the two in sync: edit the Japanese page first, then mirror the change here. */
+
 :root {
   color-scheme: light;
   --bg: #f4f6ff;
@@ -43,7 +43,7 @@ body {
   font-family: var(--body);
   font-weight: 500;
   font-size: 16px;
-  line-height: 1.85;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -55,7 +55,7 @@ h1, h2, h3 { text-wrap: balance; }
 .wrap { max-width: var(--measure); margin-inline: auto; padding-inline: var(--gutter); }
 .pixel { font-family: var(--pixel); letter-spacing: 0.08em; }
 
-/* ---------------------------------------------------------------- 表紙 */
+
 .cover {
   background:
     radial-gradient(circle, rgba(21, 21, 46, 0.14) 1.5px, transparent 2px) 0 0 / 22px 22px,
@@ -72,7 +72,7 @@ h1, h2, h3 { text-wrap: balance; }
 .hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: center; gap: clamp(16px, 3vw, 40px); padding-block: clamp(16px, 3vw, 36px) clamp(36px, 6vw, 68px); }
 .hero-text { min-width: 0; display: flex; flex-direction: column; gap: 22px; align-items: flex-start; }
 .eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 2px 14px; background: var(--ink); color: var(--yellow); font-size: 15px; }
-h1 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 4.3vw, 54px); line-height: 1.38; letter-spacing: 0.01em; }
+h1 { font-family: var(--display); font-weight: 400; font-size: clamp(28px, 4vw, 50px); line-height: 1.38; letter-spacing: 0.01em; }
 h1 span { display: inline-block; white-space: nowrap; }
 h1 mark { background: var(--white); color: var(--ink); padding: 0 0.14em; border: var(--edge); box-shadow: 5px 5px 0 var(--red); display: inline-block; transform: rotate(-1.5deg); line-height: 1.25; }
 .hero-lead { max-width: 31em; font-size: 17px; font-weight: 700; }
@@ -99,7 +99,7 @@ h1 mark { background: var(--white); color: var(--ink); padding: 0 0.14em; border
 .float.c { animation-delay: -3.1s; }
 @keyframes bob { 50% { transform: translateY(-10px); } }
 
-/* 流れる帯 */
+
 .ticker { background: var(--ink); color: var(--white); border-bottom: var(--edge); overflow: hidden; font-size: 15px; }
 .ticker-row { display: flex; width: max-content; animation: slide 40s linear infinite; }
 .ticker ul { display: flex; flex: 0 0 auto; }
@@ -108,7 +108,7 @@ h1 mark { background: var(--white); color: var(--ink); padding: 0 0.14em; border
 @keyframes slide { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .float, .ticker-row { animation: none; } html { scroll-behavior: auto; } }
 
-/* ---------------------------------------------------------------- 本文 */
+
 main { padding-block: clamp(48px, 7vw, 84px); }
 main .wrap { display: flex; flex-direction: column; gap: clamp(60px, 9vw, 104px); }
 section { scroll-margin-top: 20px; display: flex; flex-direction: column; gap: 26px; }
@@ -117,7 +117,7 @@ section { scroll-margin-top: 20px; display: flex; flex-direction: column; gap: 2
 h2 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 4vw, 40px); line-height: 1.4; }
 .lead { max-width: 36em; font-size: 16.5px; }
 
-/* 4 つの札 */
+
 .pillars { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; }
 .pillar { min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 24px 26px 26px; background: var(--white); border: var(--edge); border-radius: 14px; box-shadow: var(--drop); }
 .pillar .tag { align-self: flex-start; padding: 0 12px; border: 2px solid var(--ink); border-radius: 6px; font-size: 14px; background: var(--chip); }
@@ -128,7 +128,7 @@ h2 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 4vw, 
 .pillar li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 10px; height: 10px; background: var(--chip); border: 2px solid var(--ink); }
 .c-yellow { --chip: var(--yellow); } .c-green { --chip: var(--green); } .c-blue { --chip: var(--blue); } .c-pink { --chip: var(--pink); }
 
-/* 遊び方の 3 枚 */
+
 .modes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .mode { min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 18px 20px 20px; background: var(--chip); border: var(--edge); border-radius: 14px; }
 .mode h3 { font-size: 19px; font-weight: 900; }
@@ -137,12 +137,12 @@ h2 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 4vw, 
 .mode .count b { display: block; font-family: var(--display); font-weight: 400; font-size: 38px; line-height: 1.1; font-variant-numeric: tabular-nums; margin-right: 4px; }
 .note { font-size: 13px; line-height: 1.75; color: var(--ink-soft); max-width: 60em; }
 
-/* 分野 */
+
 .fields { display: flex; flex-wrap: wrap; gap: 12px; }
 .fields li { display: inline-flex; align-items: center; gap: 10px; padding: 6px 16px 6px 6px; background: var(--white); border: var(--edge); border-radius: 999px; font-weight: 700; font-size: 15px; line-height: 1.5; }
 .fields code { font-family: var(--pixel); font-size: 14px; padding: 2px 10px; border-radius: 999px; background: var(--chip); border: 2px solid var(--ink); }
 
-/* 授業 */
+
 .lesson { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr); border: var(--edge); border-radius: 16px; box-shadow: var(--drop); overflow: hidden; background: var(--white); }
 .lesson > * { min-width: 0; }
 .lesson-time { display: flex; flex-direction: column; justify-content: center; gap: 4px; padding: clamp(22px, 4vw, 36px); background: var(--blue); border-right: var(--edge); }
@@ -153,14 +153,14 @@ h2 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 4vw, 
 .steps li { counter-increment: s; display: flex; gap: 14px; align-items: center; }
 .steps li::before { content: counter(s); flex: 0 0 auto; width: 34px; height: 34px; display: grid; place-items: center; background: var(--yellow); border: 2px solid var(--ink); border-radius: 8px; font-family: var(--pixel); font-size: 17px; }
 
-/* 必要なもの */
+
 .needs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .need { min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; background: var(--white); border: var(--edge); border-radius: 14px; }
 .need dt { font-weight: 900; font-size: 17px; }
 .need dd { font-size: 14.5px; line-height: 1.75; color: var(--ink-soft); font-weight: 700; }
 .need.no { background: transparent; border-style: dashed; }
 
-/* ---------------------------------------------------------------- 申し込み */
+
 .join { background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1.5px, transparent 2px) 0 0 / 22px 22px, var(--ink); color: var(--white); border-top: var(--edge); padding-block: clamp(52px, 8vw, 92px); }
 .join .wrap { display: flex; flex-direction: column; gap: 32px; }
 .join h2 { color: var(--yellow); }
@@ -178,12 +178,12 @@ h2 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 4vw, 
 .copy { font: inherit; font-size: 13px; font-weight: 700; padding: 4px 14px; color: var(--ink); background: var(--white); border: 2px solid var(--white); border-radius: 999px; cursor: pointer; }
 .copy:hover { background: var(--yellow); border-color: var(--yellow); }
 
-/* 下に固定するボタン（スマホの幅だけ出す） */
+
 .dock { display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; gap: 10px; padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom, 0px)); background: var(--yellow); border-top: var(--edge); }
 .dock a { flex: 1 1 0; min-width: 0; display: flex; align-items: center; justify-content: center; min-height: 46px; padding: 6px 8px; font-size: 15px; font-weight: 900; text-decoration: none; text-align: center; line-height: 1.3; border: var(--edge); border-radius: 10px; background: var(--white); }
 .dock a:first-child { flex-grow: 1.5; background: var(--ink); color: var(--white); }
 
-/* ---------------------------------------------------------------- 奥付 */
+
 .colophon { background: #0c0c1e; color: rgba(255, 255, 255, 0.62); font-size: 12.5px; line-height: 1.8; padding-block: 28px 40px; }
 .colophon .wrap { display: flex; flex-direction: column; gap: 10px; }
 .colophon .legal { color: rgba(255, 255, 255, 0.82); letter-spacing: 0.03em; }
@@ -221,32 +221,32 @@ h2 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 4vw, 
         <svg viewBox="0 0 64 64" aria-hidden="true"><g stroke="#15152e" stroke-width="4" stroke-linejoin="round"><path fill="#ffffff" d="M32 6 56 19 32 32 8 19z"/><path fill="#35d07f" d="M8 19 32 32V58L8 45z"/><path fill="#4cb8ff" d="M32 32 56 19V45L32 58z"/></g></svg>
         Playceum
       </a>
-      <nav aria-label="このページの中">
-        <a href="#features">なにが最新鋭？</a>
-        <a href="#fields">13 の分野</a>
-        <a href="#lesson">授業</a>
-        <a href="#needs">いるもの</a>
-        <a href="#join">メルマガ</a>
-        <a href="en/" lang="en" hreflang="en">English</a>
+      <nav aria-label="On this page">
+        <a href="#features">What's inside</a>
+        <a href="#fields">13 fields</a>
+        <a href="#lesson">Lessons</a>
+        <a href="#needs">Requirements</a>
+        <a href="#join">Newsletter</a>
+        <a href="../" lang="ja" hreflang="ja">日本語</a>
       </nav>
     </div>
 
     <div class="hero" id="top">
       <div class="hero-text">
-        <p class="eyebrow pixel">PLAYCEUM ▸ マインクラフト部門</p>
-        <h1><span>最新鋭の</span><br><span><mark>マインクラフト</mark>を</span><br><span>プレイしませんか？</span></h1>
-        <p class="hero-lead">押したら、もう整っている。回路も建築も、遊びながら読み解ける。レッドストーンから Python まで、13 の分野へ。</p>
+        <p class="eyebrow pixel">PLAYCEUM ▸ MINECRAFT DIVISION</p>
+        <h1>Want to play <mark>Minecraft</mark> at its cutting edge?</h1>
+        <p class="hero-lead">Press play and everything is already set up. Read circuits and builds as you play. Thirteen fields to explore, from redstone to Python.</p>
         <div class="actions">
           <a class="btn btn-main" data-mail="newsletter" href="mailto:playceum@gmail.com">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z M3 7l9 6 9-6"/></svg>メルマガを購読する
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z M3 7l9 6 9-6"/></svg>Get the newsletter
           </a>
-          <a class="btn btn-sub" data-mail="contact" href="mailto:playceum@gmail.com">お問い合わせ</a>
+          <a class="btn btn-sub" data-mail="contact" href="mailto:playceum@gmail.com">Contact us</a>
         </div>
-        <p class="status"><span class="badge pixel">準備中</span><span>Playceum は、いま開始に向けて準備中です。開始の時期と料金は、決まり次第メルマガでお知らせします。</span></p>
+        <p class="status"><span class="badge pixel">COMING SOON</span><span>Playceum is getting ready to launch. We'll announce the start date and pricing in the newsletter as soon as they're set.</span></p>
       </div>
 
       <figure class="hero-art">
-        <svg id="scene" viewBox="20 30 480 410" role="img" aria-label="色とりどりのブロックを積んだ塔"></svg>
+        <svg id="scene" viewBox="20 30 480 410" role="img" aria-label="A tower of colorful stacked blocks"></svg>
       </figure>
     </div>
   </div>
@@ -260,117 +260,117 @@ h2 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 4vw, 
   <div class="wrap">
 
     <section id="features">
-      <div class="sec-head"><span class="pixel">FEATURES</span><h2>なにが最新鋭？</h2></div>
-      <p class="lead">Playceum のマインクラフト部門では、Minecraft: Java Edition を専用のクライアントから開きます。中身は、この 4 つ。</p>
+      <div class="sec-head"><span class="pixel">FEATURES</span><h2>What makes it cutting-edge?</h2></div>
+      <p class="lead">In Playceum's Minecraft division, you launch Minecraft: Java Edition from our own client. Here are the four things inside.</p>
 
       <div class="pillars">
         <article class="pillar c-yellow">
           <p class="tag pixel">READY</p>
-          <h3><span>押したら、</span><span>もう整っている。</span></h3>
-          <p>軽くする Mod、影、地図、建築の道具。みんなが入れているものが、はじめから入っています。遊び方をえらんで、押すだけ。</p>
+          <h3><span>Press play.</span> <span>It's all set.</span></h3>
+          <p>Performance mods, shaders, maps, building tools. The things most players install are there from the start. Pick how you want to play and press the button.</p>
           <ul>
-            <li>Mod の組み合わせ・設定・キーの割り当てまで用意ずみ</li>
-            <li>Java を自分で入れる手間なし</li>
-            <li>自分で変えた設定は、上書きしません</li>
+            <li>Mod set, settings and key bindings come ready-made</li>
+            <li>No need to install Java yourself</li>
+            <li>Settings you change are never overwritten</li>
           </ul>
         </article>
 
         <article class="pillar c-green">
           <p class="tag pixel">LEARN</p>
-          <h3><span>遊びながら、</span><span>しくみが分かる。</span></h3>
-          <p>学ぶためのゲームモードつき。ゲームの中で作ったものを取り込むと、読み取った結果が返ってきます。</p>
+          <h3><span>Play it,</span> <span>and see how it works.</span></h3>
+          <p>Comes with game modes made for learning. Capture what you built in the game and get a reading of it back.</p>
           <ul>
-            <li>レッドストーン: 回路を取り込むと、回路図と注意点が出る</li>
-            <li>建築: 素材の割合・奥行き・照明を読み取る</li>
-            <li>Python: ゲームの中のエディタで書いて、動かす</li>
-            <li>サバイバル: 最初の夜からエリトラまで、つぎの一歩を案内</li>
-            <li>PvP: キー入力・CPS・防具の耐久が見える HUD</li>
+            <li>Redstone: capture a circuit and get its diagram plus things to watch for</li>
+            <li>Building: reads your material mix, depth and lighting</li>
+            <li>Python: write and run code in an in-game editor</li>
+            <li>Survival: a next-step guide from your first night to the elytra</li>
+            <li>PvP: a HUD showing keystrokes, CPS and armor durability</li>
           </ul>
         </article>
 
         <article class="pillar c-blue">
           <p class="tag pixel">13 FIELDS</p>
-          <h3><span>13 の分野を、</span><span>行ったり来たり。</span></h3>
-          <p>分野ごとに、図鑑・チュートリアル・研究。レッドストーンの論理回路から、プログラミングの論理演算へ。分野どうしがつながっています。</p>
+          <h3><span>Thirteen fields,</span> <span>all connected.</span></h3>
+          <p>Each field has a reference, tutorials and research questions. Redstone logic gates lead to Boolean logic in programming. The fields link to each other.</p>
           <ul>
-            <li>プレイ中に、キー 1 つで分野の本と Minecraft Wiki が開く</li>
-            <li>レッドストーンの図鑑は、NOT・AND・XOR・RS ラッチなどを回路図つきで</li>
+            <li>One key opens the field guides and the Minecraft Wiki while you play</li>
+            <li>The redstone reference covers NOT, AND, XOR, the RS latch and more, with diagrams</li>
           </ul>
         </article>
 
         <article class="pillar c-pink">
           <p class="tag pixel">MULTI</p>
-          <h3><span>友だちと、</span><span>同じサーバーへ。</span></h3>
-          <p>サーバーを立てると、参加コードができます。もらった人は、コードを入れるだけ。必要な Mod が自動でそろって、そのままつながります。</p>
+          <h3><span>Same server,</span> <span>with your friends.</span></h3>
+          <p>Start a server and you get a join code. Your friends just enter it. The required mods are installed automatically and they connect right away.</p>
           <ul>
-            <li>サバイバル・クリエイティブ・レッドストーン・PvP の型から立てられる</li>
-            <li>X-ray などの不正に当たる Mod は、入りません</li>
+            <li>Start from a survival, creative, redstone or PvP template</li>
+            <li>Cheat mods such as X-ray are blocked</li>
           </ul>
         </article>
       </div>
 
       <div class="modes">
         <article class="mode c-green">
-          <h3>クリエイティブ</h3>
-          <p>共通の土台 ＋ Axiom・WorldEdit・ワールドマップ など</p>
-          <p class="count"><b>36</b>件の建築系 Modpack から</p>
+          <h3>Creative</h3>
+          <p>Shared base + Axiom, WorldEdit, a world map and more</p>
+          <p class="count"><b>36</b>building modpacks surveyed</p>
         </article>
         <article class="mode c-yellow">
-          <h3>サバイバル</h3>
-          <p>共通の土台 ＋ ミニマップ・ワールドマップ・ズーム・ボイスチャット など</p>
-          <p class="count"><b>53</b>件のサバイバル系 Modpack から</p>
+          <h3>Survival</h3>
+          <p>Shared base + a minimap, world map, zoom, voice chat and more</p>
+          <p class="count"><b>53</b>survival modpacks surveyed</p>
         </article>
         <article class="mode c-blue">
-          <h3>サーバー</h3>
-          <p>共通の土台 ＋ ズーム・通信の最適化。どのサーバーに入っても安全な構成</p>
-          <p class="count"><b>115</b>件のマルチプレイ系 Modpack から</p>
+          <h3>Server</h3>
+          <p>Shared base + zoom and network optimization. A setup that's safe on any server</p>
+          <p class="count"><b>115</b>multiplayer modpacks surveyed</p>
         </article>
       </div>
-      <p class="note">共通の土台: Fabric API・Sodium・Lithium・Iris・Entity Culling・FerriteCore・Mod Menu など。対象は Minecraft 1.21.1 です。何を入れるかは、公開されている Modpack を数えて、人が決めています。</p>
+      <p class="note">Shared base: Fabric API, Sodium, Lithium, Iris, Entity Culling, FerriteCore, Mod Menu and more. Built for Minecraft 1.21.1. What goes in is decided by people, based on counts from public modpacks.</p>
     </section>
 
     <section id="fields">
-      <div class="sec-head"><span class="pixel">FIELDS</span><h2>13 の分野</h2></div>
+      <div class="sec-head"><span class="pixel">FIELDS</span><h2>13 fields</h2></div>
       <ul class="fields">
-        <li class="c-green"><code>SUR</code>サバイバル</li>
-        <li class="c-yellow"><code>ARC</code>建築</li>
-        <li class="c-pink"><code>RSE</code>レッドストーン</li>
+        <li class="c-green"><code>SUR</code>Survival</li>
+        <li class="c-yellow"><code>ARC</code>Building</li>
+        <li class="c-pink"><code>RSE</code>Redstone</li>
         <li class="c-blue"><code>PVP</code>PvP</li>
         <li class="c-yellow"><code>PY</code>Python</li>
-        <li class="c-blue"><code>CS</code>プログラミングの仕組み</li>
-        <li class="c-green"><code>CMD</code>コマンドとデータパック</li>
-        <li class="c-pink"><code>OPS</code>サーバー運営</li>
-        <li class="c-blue"><code>MED</code>映像と配信</li>
-        <li class="c-green"><code>TEX</code>リソースパック</li>
-        <li class="c-yellow"><code>MOD</code>Mod 開発</li>
-        <li class="c-pink"><code>SPD</code>スピードラン</li>
-        <li class="c-blue"><code>ART</code>アート（マップアート・音符ブロック）</li>
+        <li class="c-blue"><code>CS</code>How programming works</li>
+        <li class="c-green"><code>CMD</code>Commands and data packs</li>
+        <li class="c-pink"><code>OPS</code>Server operation</li>
+        <li class="c-blue"><code>MED</code>Video and streaming</li>
+        <li class="c-green"><code>TEX</code>Resource packs</li>
+        <li class="c-yellow"><code>MOD</code>Mod development</li>
+        <li class="c-pink"><code>SPD</code>Speedrunning</li>
+        <li class="c-blue"><code>ART</code>Art (map art, note blocks)</li>
       </ul>
     </section>
 
     <section id="lesson">
-      <div class="sec-head"><span class="pixel">LESSON</span><h2>先生と、1 対 1。</h2></div>
-      <p class="lead">オンラインの 1 対 1 の授業を準備しています。決まった教科書はなし。生徒の「これがやりたい」から始まります。</p>
+      <div class="sec-head"><span class="pixel">LESSON</span><h2>One-on-one with a teacher.</h2></div>
+      <p class="lead">We're preparing one-on-one online lessons. There's no fixed textbook. Each lesson starts from what the student wants to do.</p>
       <div class="lesson">
         <div class="lesson-time">
-          <p class="num">40<small>分</small></p>
-          <p>1 回の授業・オンライン（Zoom）</p>
+          <p class="num">40<small>min</small></p>
+          <p>per lesson, online (Zoom)</p>
         </div>
         <ol class="steps">
-          <li>やりたいことと、希望の日時を伝える</li>
-          <li>先生の空いている時間と合わせて、日時が決まる</li>
-          <li>Zoom で、先生と 1 対 1 の授業</li>
+          <li>Tell us what you want to do and when</li>
+          <li>We match it with a teacher's open slots and set the time</li>
+          <li>Meet your teacher one-on-one on Zoom</li>
         </ol>
       </div>
-      <p class="note">授業は準備中です。先生・料金・開始の時期は、まだお知らせできる段階にありません。決まり次第、メルマガでお知らせします。</p>
+      <p class="note">Lessons are still being prepared. Teachers, pricing, the start date and lesson languages aren't ready to announce yet. We'll share them in the newsletter once they're set.</p>
     </section>
 
     <section id="needs">
-      <div class="sec-head"><span class="pixel">REQUIREMENTS</span><h2>いるもの</h2></div>
+      <div class="sec-head"><span class="pixel">REQUIREMENTS</span><h2>What you need</h2></div>
       <dl class="needs">
-        <div class="need"><dt>ゲーム</dt><dd>Minecraft: Java Edition（ご自身のアカウント）。Playceum は、Minecraft 本体を配りません。</dd></div>
-        <div class="need"><dt>パソコン</dt><dd>Windows のパソコンで、動作を確かめています。</dd></div>
-        <div class="need no"><dt>使えないもの</dt><dd>Nintendo Switch・スマートフォン・タブレットなどの統合版（Bedrock Edition）。</dd></div>
+        <div class="need"><dt>The game</dt><dd>Minecraft: Java Edition, on your own account. Playceum does not distribute Minecraft itself.</dd></div>
+        <div class="need"><dt>A PC</dt><dd>Tested on Windows PCs.</dd></div>
+        <div class="need no"><dt>Not supported</dt><dd>Bedrock Edition on Nintendo Switch, phones, tablets and other devices.</dd></div>
       </dl>
     </section>
 
@@ -379,27 +379,27 @@ h2 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 4vw, 
 
 <section class="join" id="join">
   <div class="wrap">
-    <div class="sec-head"><h2>はじまりの知らせを、<br>メールで受け取ろう。</h2></div>
+    <div class="sec-head"><h2>Be the first to know<br>when we launch.</h2></div>
     <div class="join-grid">
       <div class="join-item">
-        <h3>メルマガを購読する</h3>
-        <p>開始の時期、授業の申し込み、新しい機能を、メールでお知らせします。</p>
+        <h3>Get the newsletter</h3>
+        <p>We'll email you about the launch date, lesson sign-ups and new features.</p>
         <a class="btn btn-main" data-mail="newsletter" href="mailto:playceum@gmail.com">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z M3 7l9 6 9-6"/></svg>メルマガを購読する
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z M3 7l9 6 9-6"/></svg>Get the newsletter
         </a>
-        <p class="fine">押すと、メールの画面が開きます。件名「メルマガ購読希望」のまま送ってください。送っていただいたアドレスに、お知らせを送ります。やめたいときは、同じアドレスへ「配信停止」と送ってください。</p>
+        <p class="fine">The button opens your email app. Send the message with the subject “Newsletter sign-up” as it is, and we'll send news to the address you sent it from. To stop, email the same address with “Unsubscribe”.</p>
       </div>
       <div class="join-item">
-        <h3>お問い合わせ</h3>
-        <p>ご質問、取材、いっしょに取り組みたいことなど、何でもどうぞ。</p>
-        <a class="btn btn-sub" data-mail="contact" href="mailto:playceum@gmail.com">お問い合わせ</a>
-        <p class="fine">押すと、メールの画面が開きます。</p>
+        <h3>Contact us</h3>
+        <p>Questions, press, ideas for working together: anything is welcome.</p>
+        <a class="btn btn-sub" data-mail="contact" href="mailto:playceum@gmail.com">Contact us</a>
+        <p class="fine">The button opens your email app.</p>
       </div>
     </div>
     <div class="addr">
-      <span>メールの画面が開かないときは、このアドレスへ直接どうぞ。</span>
+      <span>If your email app doesn't open, write to this address directly.</span>
       <b id="address">playceum@gmail.com</b>
-      <button type="button" class="copy" id="copy-address">アドレスをコピー</button>
+      <button type="button" class="copy" id="copy-address">Copy address</button>
     </div>
   </div>
 </section>
@@ -407,24 +407,23 @@ h2 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 4vw, 
 <footer class="colophon">
   <div class="wrap">
     <p class="legal">NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.</p>
-    <p>「Minecraft」は Mojang Studios / Microsoft の商標です。Playceum は、Mojang・Microsoft とは関係がありません。このページに出てくる Mod の名前は、それぞれの作者のものです。</p>
-    <p>Playceum　お問い合わせ: playceum@gmail.com</p>
+    <p>“Minecraft” is a trademark of Mojang Studios / Microsoft. Playceum is not affiliated with Mojang or Microsoft. Mod names on this page belong to their respective authors.</p>
+    <p>Playceum · Contact: playceum@gmail.com</p>
   </div>
 </footer>
 
 <div class="dock">
-  <a data-mail="newsletter" href="mailto:playceum@gmail.com">メルマガを購読する</a>
-  <a data-mail="contact" href="mailto:playceum@gmail.com">お問い合わせ</a>
+  <a data-mail="newsletter" href="mailto:playceum@gmail.com">Get the newsletter</a>
+  <a data-mail="contact" href="mailto:playceum@gmail.com">Contact us</a>
 </div>
 
 <script>
 (function () {
   var ADDRESS = "playceum@gmail.com";
 
-  // メールの画面に入れておく件名と本文
   var mails = {
-    newsletter: { subject: "メルマガ購読希望", body: "Playceum のメルマガを購読します。\n（このまま送信してください）" },
-    contact: { subject: "Playceum へのお問い合わせ", body: "" }
+    newsletter: { subject: "Newsletter sign-up", body: "Please add me to the Playceum newsletter.\n(Just send this message as it is.)" },
+    contact: { subject: "Inquiry about Playceum", body: "" }
   };
   document.querySelectorAll("[data-mail]").forEach(function (a) {
     var m = mails[a.dataset.mail];
@@ -434,16 +433,15 @@ h2 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 4vw, 
 
   var copy = document.getElementById("copy-address");
   copy.addEventListener("click", function () {
-    var done = function () { copy.textContent = "コピーしました"; setTimeout(function () { copy.textContent = "アドレスをコピー"; }, 2000); };
+    var done = function () { copy.textContent = "Copied"; setTimeout(function () { copy.textContent = "Copy address"; }, 2000); };
     var select = function () {
       var r = document.createRange(); r.selectNodeContents(document.getElementById("address"));
       var s = getSelection(); s.removeAllRanges(); s.addRange(r);
-      copy.textContent = "選びました。コピーしてください";
+      copy.textContent = "Selected. Press copy.";
     };
     try { navigator.clipboard.writeText(ADDRESS).then(done, select); } catch (e) { select(); }
   });
 
-  // 流れる帯: 分野の一覧から作る（同じ並びを 2 回。半分だけ流して、つなぎ目を見せない）
   var items = [];
   document.querySelectorAll(".fields li").forEach(function (li) {
     var code = li.querySelector("code").textContent;
@@ -452,7 +450,6 @@ h2 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 4vw, 
   var list = "<ul>" + items.join("") + "</ul>";
   document.getElementById("ticker").innerHTML = list + list;
 
-  // 表紙の絵: ブロックを積んだ塔（等角図）。高さの表から描く。
   var H = [
     [1, 1, 1, 2, 2, 1, 1, 0],
     [1, 2, 2, 2, 3, 2, 1, 1],
