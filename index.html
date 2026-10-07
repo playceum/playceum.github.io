@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Playceum マインクラフト部門</title>
+<meta name="description" content="最新鋭のマインクラフトをプレイしませんか？ 整った環境、遊びながら学べるゲームモード、13 の分野。Playceum のマインクラフト部門のご紹介です。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg stroke='%2315152e' stroke-width='4' stroke-linejoin='round'%3E%3Cpath fill='%23ffd23f' d='M32 6 56 19 32 32 8 19z'/%3E%3Cpath fill='%2335d07f' d='M8 19 32 32V58L8 45z'/%3E%3Cpath fill='%234cb8ff' d='M32 32 56 19V45L32 58z'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=DotGothic16&family=Zen+Maru+Gothic:wght@500;700;900&display=swap">
+<style>
+/* 骨組み: 黄色の表紙 → 流れる帯 → 白い本文（色つきのブロックの札）→ 紺の申し込み。
+   ブロックのように、太い線と、ずらした影で組む。1 つの見た目に決めている（明暗の切り替えは無い）。 */
+:root {
+  color-scheme: light;
+  --bg: #f4f6ff;
+  --white: #ffffff;
+  --ink: #15152e;
+  --ink-soft: #4a4a66;
+  --yellow: #ffd23f;
+  --red: #ff5a4e;
+  --green: #35d07f;
+  --blue: #4cb8ff;
+  --pink: #ff9ecf;
+  --display: "Dela Gothic One", "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  --body: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  --pixel: "DotGothic16", "Zen Maru Gothic", "Yu Gothic", monospace;
+  --gutter: clamp(18px, 5vw, 64px);
+  --measure: 1120px;
+  --edge: 3px solid var(--ink);
+  --drop: 6px 6px 0 var(--ink);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, p, ul, ol, dl, dd, figure { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+a { color: inherit; }
+h1, h2, h3 { text-wrap: balance; }
+:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+.wrap { max-width: var(--measure); margin-inline: auto; padding-inline: var(--gutter); }
+.pixel { font-family: var(--pixel); letter-spacing: 0.08em; }
+
+/* ---------------------------------------------------------------- 表紙 */
+.cover {
+  background:
+    radial-gradient(circle, rgba(21, 21, 46, 0.14) 1.5px, transparent 2px) 0 0 / 22px 22px,
+    var(--yellow);
+  border-bottom: var(--edge);
+}
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 14px 20px; flex-wrap: wrap; padding-block: 18px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--display); font-size: 22px; letter-spacing: 0.04em; }
+.brand svg { width: 34px; height: 34px; flex: 0 0 auto; }
+.bar nav { display: flex; gap: 8px; flex-wrap: wrap; font-size: 14px; font-weight: 700; }
+.bar nav a { text-decoration: none; padding: 4px 14px; border: 2px solid var(--ink); border-radius: 999px; background: var(--white); transition: transform 0.12s, background 0.12s; }
+.bar nav a:hover { background: var(--ink); color: var(--white); transform: translateY(-2px); }
+
+.hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: center; gap: clamp(16px, 3vw, 40px); padding-block: clamp(16px, 3vw, 36px) clamp(36px, 6vw, 68px); }
+.hero-text { min-width: 0; display: flex; flex-direction: column; gap: 22px; align-items: flex-start; }
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 2px 14px; background: var(--ink); color: var(--yellow); font-size: 15px; }
+h1 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 4.3vw, 54px); line-height: 1.38; letter-spacing: 0.01em; }
+h1 span { display: inline-block; white-space: nowrap; }
+h1 mark { background: var(--white); color: var(--ink); padding: 0 0.14em; border: var(--edge); box-shadow: 5px 5px 0 var(--red); display: inline-block; transform: rotate(-1.5deg); line-height: 1.25; }
+.hero-lead { max-width: 31em; font-size: 17px; font-weight: 700; }
+.actions { display: flex; flex-wrap: wrap; gap: 14px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; padding: 13px 26px;
+  font: inherit; font-size: 17px; font-weight: 900; letter-spacing: 0.06em; text-decoration: none; cursor: pointer;
+  border: var(--edge); border-radius: 12px; box-shadow: var(--drop); transition: transform 0.12s, box-shadow 0.12s;
+}
+.btn:hover { transform: translate(3px, 3px); box-shadow: 3px 3px 0 var(--ink); }
+.btn:active { transform: translate(6px, 6px); box-shadow: 0 0 0 var(--ink); }
+.btn svg { width: 20px; height: 20px; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+.btn-main { background: var(--ink); color: var(--white); }
+.btn-sub { background: var(--white); color: var(--ink); }
+.status { display: flex; align-items: flex-start; gap: 12px; font-size: 13.5px; font-weight: 700; line-height: 1.7; max-width: 36em; }
+.badge { flex: 0 0 auto; padding: 1px 10px; background: var(--red); color: var(--white); border: 2px solid var(--ink); border-radius: 6px; font-size: 13px; transform: rotate(-4deg); white-space: nowrap; }
+
+.hero-art { min-width: 0; }
+.hero-art svg { display: block; width: 100%; height: auto; overflow: visible; }
+.float { animation: bob 5s ease-in-out infinite; }
+.float.b { animation-delay: -1.6s; }
+.float.c { animation-delay: -3.1s; }
+@keyframes bob { 50% { transform: translateY(-10px); } }
+
+/* 流れる帯 */
+.ticker { background: var(--ink); color: var(--white); border-bottom: var(--edge); overflow: hidden; font-size: 15px; }
+.ticker-row { display: flex; width: max-content; animation: slide 40s linear infinite; }
+.ticker ul { display: flex; flex: 0 0 auto; }
+.ticker li { padding: 9px 20px; white-space: nowrap; }
+.ticker li b { font-weight: 400; color: var(--yellow); margin-right: 8px; }
+@keyframes slide { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .float, .ticker-row { animation: none; } html { scroll-behavior: auto; } }
+
+/* ---------------------------------------------------------------- 本文 */
+main { padding-block: clamp(48px, 7vw, 84px); }
+main .wrap { display: flex; flex-direction: column; gap: clamp(60px, 9vw, 104px); }
+section { scroll-margin-top: 20px; display: flex; flex-direction: column; gap: 26px; }
+.sec-head { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.sec-head .pixel { font-size: 14px; padding: 0 10px; background: var(--ink); color: var(--white); }
+h2 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 4vw, 40px); line-height: 1.4; }
+.lead { max-width: 36em; font-size: 16.5px; }
+
+/* 4 つの札 */
+.pillars { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; }
+.pillar { min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 24px 26px 26px; background: var(--white); border: var(--edge); border-radius: 14px; box-shadow: var(--drop); }
+.pillar .tag { align-self: flex-start; padding: 0 12px; border: 2px solid var(--ink); border-radius: 6px; font-size: 14px; background: var(--chip); }
+.pillar h3 { font-size: 22px; font-weight: 900; line-height: 1.5; }
+.pillar ul { display: flex; flex-direction: column; gap: 6px; font-size: 14.5px; line-height: 1.7; color: var(--ink-soft); font-weight: 700; }
+.pillar li { padding-left: 1.4em; position: relative; }
+.pillar li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 10px; height: 10px; background: var(--chip); border: 2px solid var(--ink); }
+.c-yellow { --chip: var(--yellow); } .c-green { --chip: var(--green); } .c-blue { --chip: var(--blue); } .c-pink { --chip: var(--pink); }
+
+/* 遊び方の 3 枚 */
+.modes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.mode { min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 18px 20px 20px; background: var(--chip); border: var(--edge); border-radius: 14px; }
+.mode h3 { font-size: 19px; font-weight: 900; }
+.mode p { font-size: 14px; line-height: 1.7; font-weight: 700; }
+.mode .count { margin-top: auto; padding-top: 10px; font-size: 13px; line-height: 1.5; }
+.mode .count b { font-family: var(--display); font-weight: 400; font-size: 38px; line-height: 1.1; font-variant-numeric: tabular-nums; margin-right: 4px; }
+.note { font-size: 13px; line-height: 1.75; color: var(--ink-soft); max-width: 60em; }
+
+/* 分野 */
+.fields { display: flex; flex-wrap: wrap; gap: 12px; }
+.fields li { display: inline-flex; align-items: center; gap: 10px; padding: 6px 16px 6px 6px; background: var(--white); border: var(--edge); border-radius: 999px; font-weight: 700; font-size: 15px; line-height: 1.5; }
+.fields code { font-family: var(--pixel); font-size: 14px; padding: 2px 10px; border-radius: 999px; background: var(--chip); border: 2px solid var(--ink); }
+
+/* 授業 */
+.lesson { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr); border: var(--edge); border-radius: 16px; box-shadow: var(--drop); overflow: hidden; background: var(--white); }
+.lesson > * { min-width: 0; }
+.lesson-time { display: flex; flex-direction: column; justify-content: center; gap: 4px; padding: clamp(22px, 4vw, 36px); background: var(--blue); border-right: var(--edge); }
+.lesson-time .num { font-family: var(--display); font-size: clamp(60px, 9vw, 96px); line-height: 1; }
+.lesson-time .num small { font-size: 0.34em; margin-left: 0.15em; }
+.lesson-time p { font-weight: 900; font-size: 15px; }
+.steps { display: flex; flex-direction: column; justify-content: center; gap: 14px; padding: clamp(22px, 4vw, 36px); counter-reset: s; font-weight: 700; font-size: 16px; line-height: 1.6; }
+.steps li { counter-increment: s; display: flex; gap: 14px; align-items: center; }
+.steps li::before { content: counter(s); flex: 0 0 auto; width: 34px; height: 34px; display: grid; place-items: center; background: var(--yellow); border: 2px solid var(--ink); border-radius: 8px; font-family: var(--pixel); font-size: 17px; }
+
+/* 必要なもの */
+.needs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.need { min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; background: var(--white); border: var(--edge); border-radius: 14px; }
+.need dt { font-weight: 900; font-size: 17px; }
+.need dd { font-size: 14.5px; line-height: 1.75; color: var(--ink-soft); font-weight: 700; }
+.need.no { background: transparent; border-style: dashed; }
+
+/* ---------------------------------------------------------------- 申し込み */
+.join { background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1.5px, transparent 2px) 0 0 / 22px 22px, var(--ink); color: var(--white); border-top: var(--edge); padding-block: clamp(52px, 8vw, 92px); }
+.join .wrap { display: flex; flex-direction: column; gap: 32px; }
+.join h2 { color: var(--yellow); }
+.join-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.join-item { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 14px; padding: 24px 26px 26px; border: 3px solid var(--white); border-radius: 14px; }
+.join-item h3 { font-size: 21px; font-weight: 900; }
+.join-item p { font-size: 15px; font-weight: 700; }
+.join-item .fine { font-size: 13px; line-height: 1.75; font-weight: 500; color: rgba(255, 255, 255, 0.72); }
+.join .btn { box-shadow: 6px 6px 0 var(--red); border-color: var(--white); }
+.join .btn:hover { box-shadow: 3px 3px 0 var(--red); }
+.join .btn-main { background: var(--yellow); color: var(--ink); border-color: var(--yellow); }
+.addr { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding: 14px 20px; border: 2px dashed rgba(255, 255, 255, 0.5); border-radius: 12px; font-size: 13.5px; color: rgba(255, 255, 255, 0.8); }
+.addr span { min-width: 0; }
+.addr b { font-family: var(--pixel); font-size: 19px; font-weight: 400; color: var(--yellow); user-select: all; overflow-wrap: anywhere; }
+.copy { font: inherit; font-size: 13px; font-weight: 700; padding: 4px 14px; color: var(--ink); background: var(--white); border: 2px solid var(--white); border-radius: 999px; cursor: pointer; }
+.copy:hover { background: var(--yellow); border-color: var(--yellow); }
+
+/* ---------------------------------------------------------------- 奥付 */
+.colophon { background: #0c0c1e; color: rgba(255, 255, 255, 0.62); font-size: 12.5px; line-height: 1.8; padding-block: 28px 40px; }
+.colophon .wrap { display: flex; flex-direction: column; gap: 10px; }
+.colophon .legal { color: rgba(255, 255, 255, 0.82); letter-spacing: 0.03em; }
+
+@media (max-width: 820px) {
+  .hero { grid-template-columns: minmax(0, 1fr); }
+  .hero-art { order: -1; max-width: 380px; margin-inline: auto; width: 100%; }
+  h1 { font-size: clamp(26px, 8.6vw, 54px); }
+  .pillars, .modes, .needs, .join-grid, .lesson { grid-template-columns: minmax(0, 1fr); }
+  .lesson-time { border-right: 0; border-bottom: var(--edge); }
+}
+@media (max-width: 480px) {
+  .btn { width: 100%; justify-content: center; }
+  .actions { width: 100%; }
+  .bar nav a { padding: 2px 11px; font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="wrap">
+    <div class="bar">
+      <a class="brand" href="#top" aria-label="Playceum">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><g stroke="#15152e" stroke-width="4" stroke-linejoin="round"><path fill="#ffffff" d="M32 6 56 19 32 32 8 19z"/><path fill="#35d07f" d="M8 19 32 32V58L8 45z"/><path fill="#4cb8ff" d="M32 32 56 19V45L32 58z"/></g></svg>
+        Playceum
+      </a>
+      <nav aria-label="このページの中">
+        <a href="#features">なにが最新鋭？</a>
+        <a href="#fields">13 の分野</a>
+        <a href="#lesson">授業</a>
+        <a href="#needs">いるもの</a>
+        <a href="#join">メルマガ</a>
+      </nav>
+    </div>
+
+    <div class="hero" id="top">
+      <div class="hero-text">
+        <p class="eyebrow pixel">PLAYCEUM ▸ マインクラフト部門</p>
+        <h1><span>最新鋭の</span><br><span><mark>マインクラフト</mark>を</span><br><span>プレイしませんか？</span></h1>
+        <p class="hero-lead">押したら、もう整っている。回路も建築も、遊びながら読み解ける。レッドストーンから Python まで、13 の分野へ。</p>
+        <div class="actions">
+          <a class="btn btn-main" data-mail="newsletter" href="mailto:playceum@gmail.com">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z M3 7l9 6 9-6"/></svg>メルマガを購読する
+          </a>
+          <a class="btn btn-sub" data-mail="contact" href="mailto:playceum@gmail.com">お問い合わせ</a>
+        </div>
+        <p class="status"><span class="badge pixel">準備中</span><span>Playceum は、いま開始に向けて準備中です。開始の時期と料金は、決まり次第メルマガでお知らせします。</span></p>
+      </div>
+
+      <figure class="hero-art">
+        <svg id="scene" viewBox="20 30 480 410" role="img" aria-label="色とりどりのブロックを積んだ塔"></svg>
+      </figure>
+    </div>
+  </div>
+</header>
+
+<div class="ticker pixel" aria-hidden="true">
+  <div class="ticker-row" id="ticker"></div>
+</div>
+
+<main>
+  <div class="wrap">
+
+    <section id="features">
+      <div class="sec-head"><span class="pixel">FEATURES</span><h2>なにが最新鋭？</h2></div>
+      <p class="lead">Playceum のマインクラフト部門では、Minecraft: Java Edition を専用のクライアントから開きます。中身は、この 4 つ。</p>
+
+      <div class="pillars">
+        <article class="pillar c-yellow">
+          <p class="tag pixel">READY</p>
+          <h3>押したら、もう整っている。</h3>
+          <p>軽くする Mod、影、地図、建築の道具。みんなが入れているものが、はじめから入っています。遊び方をえらんで、押すだけ。</p>
+          <ul>
+            <li>Mod の組み合わせ・設定・キーの割り当てまで用意ずみ</li>
+            <li>Java を自分で入れる手間なし</li>
+            <li>自分で変えた設定は、上書きしません</li>
+          </ul>
+        </article>
+
+        <article class="pillar c-green">
+          <p class="tag pixel">LEARN</p>
+          <h3>遊びながら、しくみが分かる。</h3>
+          <p>学ぶためのゲームモードつき。ゲームの中で作ったものを取り込むと、読み取った結果が返ってきます。</p>
+          <ul>
+            <li>レッドストーン: 回路を取り込むと、回路図と注意点が出る</li>
+            <li>建築: 素材の割合・奥行き・照明を読み取る</li>
+            <li>Python: ゲームの中のエディタで書いて、動かす</li>
+            <li>サバイバル: 最初の夜からエリトラまで、つぎの一歩を案内</li>
+            <li>PvP: キー入力・CPS・防具の耐久が見える HUD</li>
+          </ul>
+        </article>
+
+        <article class="pillar c-blue">
+          <p class="tag pixel">13 FIELDS</p>
+          <h3>13 の分野を、行ったり来たり。</h3>
+          <p>分野ごとに、図鑑・チュートリアル・研究。レッドストーンの論理回路から、プログラミングの論理演算へ。分野どうしがつながっています。</p>
+          <ul>
+            <li>プレイ中に、キー 1 つで分野の本と Minecraft Wiki が開く</li>
+            <li>レッドストーンの図鑑は、NOT・AND・XOR・RS ラッチなどを回路図つきで</li>
+          </ul>
+        </article>
+
+        <article class="pillar c-pink">
+          <p class="tag pixel">MULTI</p>
+          <h3>友だちと、同じサーバーへ。</h3>
+          <p>サーバーを立てると、参加コードができます。もらった人は、コードを入れるだけ。必要な Mod が自動でそろって、そのままつながります。</p>
+          <ul>
+            <li>サバイバル・クリエイティブ・レッドストーン・PvP の型から立てられる</li>
+            <li>X-ray などの不正に当たる Mod は、入りません</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="modes">
+        <article class="mode c-green">
+          <h3>クリエイティブ</h3>
+          <p>共通の土台 ＋ Axiom・WorldEdit・ワールドマップ など</p>
+          <p class="count"><b>36</b>件の建築系 Modpack から</p>
+        </article>
+        <article class="mode c-yellow">
+          <h3>サバイバル</h3>
+          <p>共通の土台 ＋ ミニマップ・ワールドマップ・ズーム・ボイスチャット など</p>
+          <p class="count"><b>53</b>件のサバイバル系 Modpack から</p>
+        </article>
+        <article class="mode c-blue">
+          <h3>サーバー</h3>
+          <p>共通の土台 ＋ ズーム・通信の最適化。どのサーバーに入っても安全な構成</p>
+          <p class="count"><b>115</b>件のマルチプレイ系 Modpack から</p>
+        </article>
+      </div>
+      <p class="note">共通の土台: Fabric API・Sodium・Lithium・Iris・Entity Culling・FerriteCore・Mod Menu など。対象は Minecraft 1.21.1 です。何を入れるかは、公開されている Modpack を数えて、人が決めています。</p>
+    </section>
+
+    <section id="fields">
+      <div class="sec-head"><span class="pixel">FIELDS</span><h2>13 の分野</h2></div>
+      <ul class="fields">
+        <li class="c-green"><code>SUR</code>サバイバル</li>
+        <li class="c-yellow"><code>ARC</code>建築</li>
+        <li class="c-pink"><code>RSE</code>レッドストーン</li>
+        <li class="c-blue"><code>PVP</code>PvP</li>
+        <li class="c-yellow"><code>PY</code>Python</li>
+        <li class="c-blue"><code>CS</code>プログラミングの仕組み</li>
+        <li class="c-green"><code>CMD</code>コマンドとデータパック</li>
+        <li class="c-pink"><code>OPS</code>サーバー運営</li>
+        <li class="c-blue"><code>MED</code>映像と配信</li>
+        <li class="c-green"><code>TEX</code>リソースパック</li>
+        <li class="c-yellow"><code>MOD</code>Mod 開発</li>
+        <li class="c-pink"><code>SPD</code>スピードラン</li>
+        <li class="c-blue"><code>ART</code>アート（マップアート・音符ブロック）</li>
+      </ul>
+    </section>
+
+    <section id="lesson">
+      <div class="sec-head"><span class="pixel">LESSON</span><h2>先生と、1 対 1。</h2></div>
+      <p class="lead">オンラインの 1 対 1 の授業を準備しています。決まった教科書はなし。生徒の「これがやりたい」から始まります。</p>
+      <div class="lesson">
+        <div class="lesson-time">
+          <p class="num">40<small>分</small></p>
+          <p>1 回の授業・オンライン（Zoom）</p>
+        </div>
+        <ol class="steps">
+          <li>やりたいことと、希望の日時を伝える</li>
+          <li>先生の空いている時間と合わせて、日時が決まる</li>
+          <li>Zoom で、先生と 1 対 1 の授業</li>
+        </ol>
+      </div>
+      <p class="note">授業は準備中です。先生・料金・開始の時期は、まだお知らせできる段階にありません。決まり次第、メルマガでお知らせします。</p>
+    </section>
+
+    <section id="needs">
+      <div class="sec-head"><span class="pixel">REQUIREMENTS</span><h2>いるもの</h2></div>
+      <dl class="needs">
+        <div class="need"><dt>ゲーム</dt><dd>Minecraft: Java Edition（ご自身のアカウント）。Playceum は、Minecraft 本体を配りません。</dd></div>
+        <div class="need"><dt>パソコン</dt><dd>Windows のパソコンで、動作を確かめています。</dd></div>
+        <div class="need no"><dt>使えないもの</dt><dd>Nintendo Switch・スマートフォン・タブレットなどの統合版（Bedrock Edition）。</dd></div>
+      </dl>
+    </section>
+
+  </div>
+</main>
+
+<section class="join" id="join">
+  <div class="wrap">
+    <div class="sec-head"><h2>はじまりの知らせを、<br>メールで受け取ろう。</h2></div>
+    <div class="join-grid">
+      <div class="join-item">
+        <h3>メルマガを購読する</h3>
+        <p>開始の時期、授業の申し込み、新しい機能を、メールでお知らせします。</p>
+        <a class="btn btn-main" data-mail="newsletter" href="mailto:playceum@gmail.com">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z M3 7l9 6 9-6"/></svg>メルマガを購読する
+        </a>
+        <p class="fine">押すと、メールの画面が開きます。件名「メルマガ購読希望」のまま送ってください。送っていただいたアドレスに、お知らせを送ります。やめたいときは、同じアドレスへ「配信停止」と送ってください。</p>
+      </div>
+      <div class="join-item">
+        <h3>お問い合わせ</h3>
+        <p>ご質問、取材、いっしょに取り組みたいことなど、何でもどうぞ。</p>
+        <a class="btn btn-sub" data-mail="contact" href="mailto:playceum@gmail.com">お問い合わせ</a>
+        <p class="fine">押すと、メールの画面が開きます。</p>
+      </div>
+    </div>
+    <div class="addr">
+      <span>メールの画面が開かないときは、このアドレスへ直接どうぞ。</span>
+      <b id="address">playceum@gmail.com</b>
+      <button type="button" class="copy" id="copy-address">アドレスをコピー</button>
+    </div>
+  </div>
+</section>
+
+<footer class="colophon">
+  <div class="wrap">
+    <p class="legal">NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.</p>
+    <p>「Minecraft」は Mojang Studios / Microsoft の商標です。Playceum は、Mojang・Microsoft とは関係がありません。このページに出てくる Mod の名前は、それぞれの作者のものです。</p>
+    <p>Playceum　お問い合わせ: playceum@gmail.com</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var ADDRESS = "playceum@gmail.com";
+
+  // メールの画面に入れておく件名と本文
+  var mails = {
+    newsletter: { subject: "メルマガ購読希望", body: "Playceum のメルマガを購読します。\n（このまま送信してください）" },
+    contact: { subject: "Playceum へのお問い合わせ", body: "" }
+  };
+  document.querySelectorAll("[data-mail]").forEach(function (a) {
+    var m = mails[a.dataset.mail];
+    var q = "subject=" + encodeURIComponent(m.subject) + (m.body ? "&body=" + encodeURIComponent(m.body) : "");
+    a.href = "mailto:" + ADDRESS + "?" + q;
+  });
+
+  var copy = document.getElementById("copy-address");
+  copy.addEventListener("click", function () {
+    var done = function () { copy.textContent = "コピーしました"; setTimeout(function () { copy.textContent = "アドレスをコピー"; }, 2000); };
+    var select = function () {
+      var r = document.createRange(); r.selectNodeContents(document.getElementById("address"));
+      var s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      copy.textContent = "選びました。コピーしてください";
+    };
+    try { navigator.clipboard.writeText(ADDRESS).then(done, select); } catch (e) { select(); }
+  });
+
+  // 流れる帯: 分野の一覧から作る（同じ並びを 2 回。半分だけ流して、つなぎ目を見せない）
+  var items = [];
+  document.querySelectorAll(".fields li").forEach(function (li) {
+    var code = li.querySelector("code").textContent;
+    items.push("<li><b>" + code + "</b>" + li.textContent.slice(code.length) + "</li>");
+  });
+  var list = "<ul>" + items.join("") + "</ul>";
+  document.getElementById("ticker").innerHTML = list + list;
+
+  // 表紙の絵: ブロックを積んだ塔（等角図）。高さの表から描く。
+  var H = [
+    [1, 1, 1, 2, 2, 1, 1, 0],
+    [1, 2, 2, 2, 3, 2, 1, 1],
+    [1, 2, 3, 3, 3, 2, 1, 1],
+    [2, 2, 3, 7, 3, 2, 2, 1],
+    [2, 3, 3, 3, 4, 2, 1, 1],
+    [1, 2, 2, 2, 2, 2, 1, 1],
+    [1, 1, 2, 1, 1, 1, 1, 0],
+    [0, 1, 1, 1, 1, 0, 0, 0]
+  ];
+  var W = 26, T = 13, D = 26, OX = 260, OY = 196, INK = "#15152e";
+  var GRASS = ["#35d07f", "#4cb8ff", "#2a8fd6"], TOWER = ["#ff9ecf", "#ff5a4e", "#d93d33"], TOP = ["#ffffff", "#ffe98a", "#f2b705"];
+  var poly = function (pts, fill) { return '<polygon points="' + pts.join(" ") + '" fill="' + fill + '"/>'; };
+  var cube = function (sx, sy, c, cls) {
+    return '<g stroke="' + INK + '" stroke-width="2" stroke-linejoin="round"' + (cls ? ' class="' + cls + '"' : "") + ">" +
+      poly([sx + "," + sy, (sx + W) + "," + (sy + T), sx + "," + (sy + 2 * T), (sx - W) + "," + (sy + T)], c[0]) +
+      poly([(sx - W) + "," + (sy + T), sx + "," + (sy + 2 * T), sx + "," + (sy + 2 * T + D), (sx - W) + "," + (sy + T + D)], c[1]) +
+      poly([sx + "," + (sy + 2 * T), (sx + W) + "," + (sy + T), (sx + W) + "," + (sy + T + D), sx + "," + (sy + 2 * T + D)], c[2]) +
+      "</g>";
+  };
+  var out = [
+    '<circle cx="262" cy="170" r="150" fill="#ffffff" stroke="' + INK + '" stroke-width="3"/>',
+    cube(82, 96, TOWER, "float"), cube(440, 70, GRASS, "float b"), cube(452, 300, TOP, "float c")
+  ];
+  for (var y = 0; y < 8; y++) for (var x = 0; x < 8; x++) for (var z = 0; z < H[y][x]; z++) {
+    var tower = x === 3 && y === 3 && z >= 3;
+    out.push(cube(OX + (x - y) * W, OY + (x + y) * T - (z + 1) * D, tower ? (z === 6 ? TOP : TOWER) : GRASS));
+  }
+  document.getElementById("scene").innerHTML = out.join("");
+})();
+</script>
+</body>
+</html>
