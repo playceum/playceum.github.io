@@ -118,6 +118,9 @@ h2 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 4vw, 
 .lead { max-width: 36em; font-size: 16.5px; }
 
 
+.movie { aspect-ratio: 16 / 9; max-width: 100%; background: var(--ink); border: var(--edge); border-radius: 16px; box-shadow: var(--drop); overflow: hidden; }
+.movie iframe { display: block; width: 100%; height: 100%; border: 0; }
+
 .pillars { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; }
 .pillar { min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 24px 26px 26px; background: var(--white); border: var(--edge); border-radius: 14px; box-shadow: var(--drop); }
 .pillar .tag { align-self: flex-start; padding: 0 12px; border: 2px solid var(--ink); border-radius: 6px; font-size: 14px; background: var(--chip); }
@@ -222,6 +225,7 @@ h2 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 4vw, 
         Playceum
       </a>
       <nav aria-label="On this page">
+        <a href="#movie">Video</a>
         <a href="#features">What's inside</a>
         <a href="#fields">13 fields</a>
         <a href="#lesson">Lessons</a>
@@ -258,6 +262,14 @@ h2 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 4vw, 
 
 <main>
   <div class="wrap">
+
+    <section id="movie">
+      <div class="sec-head"><span class="pixel">MOVIE</span><h2>Watch the video</h2></div>
+      <div class="movie">
+        <iframe src="https://www.youtube-nocookie.com/embed/mFrnlJVCTcw?rel=0" title="Playceum video" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <p class="note">A 24-second video. If it doesn't play, <a href="https://youtu.be/mFrnlJVCTcw">watch it on YouTube</a>. Playceum is not affiliated with Mojang or Microsoft.</p>
+    </section>
 
     <section id="features">
       <div class="sec-head"><span class="pixel">FEATURES</span><h2>What makes it cutting-edge?</h2></div>
