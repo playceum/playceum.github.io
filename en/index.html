@@ -399,17 +399,17 @@ h2 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 4vw, 
         <a class="btn btn-main" data-mail="newsletter" href="mailto:playceum@gmail.com">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z M3 7l9 6 9-6"/></svg>Get the newsletter
         </a>
-        <p class="fine">The button opens your email app. Send the message with the subject “Newsletter sign-up” as it is, and we'll send news to the address you sent it from. To stop, email the same address with “Unsubscribe”.</p>
+        <p class="fine">The button opens a Gmail draft in your browser (on phones, it opens your email app). Send the message with the subject “Newsletter sign-up” as it is, and we'll send news to the address you sent it from. To stop, email the same address with “Unsubscribe”.</p>
       </div>
       <div class="join-item">
         <h3>Contact us</h3>
         <p>Questions, press, ideas for working together: anything is welcome.</p>
         <a class="btn btn-sub" data-mail="contact" href="mailto:playceum@gmail.com">Contact us</a>
-        <p class="fine">The button opens your email app.</p>
+        <p class="fine">The button opens a Gmail draft in your browser (on phones, it opens your email app).</p>
       </div>
     </div>
     <div class="addr">
-      <span>If your email app doesn't open, write to this address directly.</span>
+      <span>If you don't use Gmail, write to this address directly.</span>
       <b id="address">playceum@gmail.com</b>
       <button type="button" class="copy" id="copy-address">Copy address</button>
     </div>
@@ -440,7 +440,13 @@ h2 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 4vw, 
   document.querySelectorAll("[data-mail]").forEach(function (a) {
     var m = mails[a.dataset.mail];
     var q = "subject=" + encodeURIComponent(m.subject) + (m.body ? "&body=" + encodeURIComponent(m.body) : "");
-    a.href = "mailto:" + ADDRESS + "?" + q;
+    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      a.href = "mailto:" + ADDRESS + "?" + q;
+    } else {
+      a.href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(ADDRESS) + "&" + q.replace("subject=", "su=");
+      a.target = "_blank";
+      a.rel = "noopener";
+    }
   });
 
   var copy = document.getElementById("copy-address");

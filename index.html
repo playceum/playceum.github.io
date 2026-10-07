@@ -400,17 +400,17 @@ h2 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 4vw, 
         <a class="btn btn-main" data-mail="newsletter" href="mailto:playceum@gmail.com">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z M3 7l9 6 9-6"/></svg>メルマガを購読する
         </a>
-        <p class="fine">押すと、メールの画面が開きます。件名「メルマガ購読希望」のまま送ってください。送っていただいたアドレスに、お知らせを送ります。やめたいときは、同じアドレスへ「配信停止」と送ってください。</p>
+        <p class="fine">押すと、ブラウザで Gmail の作成画面が開きます（スマートフォンでは、メールのアプリが開きます）。件名「メルマガ購読希望」のまま送ってください。送っていただいたアドレスに、お知らせを送ります。やめたいときは、同じアドレスへ「配信停止」と送ってください。</p>
       </div>
       <div class="join-item">
         <h3>お問い合わせ</h3>
         <p>ご質問、取材、いっしょに取り組みたいことなど、何でもどうぞ。</p>
         <a class="btn btn-sub" data-mail="contact" href="mailto:playceum@gmail.com">お問い合わせ</a>
-        <p class="fine">押すと、メールの画面が開きます。</p>
+        <p class="fine">押すと、ブラウザで Gmail の作成画面が開きます（スマートフォンでは、メールのアプリが開きます）。</p>
       </div>
     </div>
     <div class="addr">
-      <span>メールの画面が開かないときは、このアドレスへ直接どうぞ。</span>
+      <span>Gmail を使っていないときは、このアドレスへ直接どうぞ。</span>
       <b id="address">playceum@gmail.com</b>
       <button type="button" class="copy" id="copy-address">アドレスをコピー</button>
     </div>
@@ -442,7 +442,13 @@ h2 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 4vw, 
   document.querySelectorAll("[data-mail]").forEach(function (a) {
     var m = mails[a.dataset.mail];
     var q = "subject=" + encodeURIComponent(m.subject) + (m.body ? "&body=" + encodeURIComponent(m.body) : "");
-    a.href = "mailto:" + ADDRESS + "?" + q;
+    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      a.href = "mailto:" + ADDRESS + "?" + q;
+    } else {
+      a.href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(ADDRESS) + "&" + q.replace("subject=", "su=");
+      a.target = "_blank";
+      a.rel = "noopener";
+    }
   });
 
   var copy = document.getElementById("copy-address");
